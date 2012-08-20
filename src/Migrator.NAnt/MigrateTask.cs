@@ -169,9 +169,17 @@ namespace Migrator.NAnt
                 mig.Logger.Log("********** Dry run! Not actually applying changes. **********");
 
             if (_to == -1)
-                mig.MigrateToLastVersion();
+            {
+               mig.MigrateToLastVersion();
+            }
+            else if(_to == -2)
+            {
+               mig.MigrateRedo();
+            }
             else
-                mig.MigrateTo(_to);
+            {
+               mig.MigrateTo(_to);
+            }
         }
 	}
 }

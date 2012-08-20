@@ -569,6 +569,7 @@ namespace Migrator.Providers
 		    IDbCommand cmd = _connection.CreateCommand();
             cmd.CommandText = sql;
             cmd.CommandType = CommandType.Text;
+            cmd.CommandTimeout = 0;
             if (_transaction != null)
             {
                 cmd.Transaction = _transaction;

@@ -56,6 +56,18 @@ namespace Migrator
             }
         }
 
+       public long SecondToLastVersion
+       {
+          get
+          {
+             if (_migrationsTypes.Count <= 1)
+             {
+                return 0;
+             }
+             return GetMigrationVersion(_migrationsTypes[_migrationsTypes.Count - 2]);
+          }
+       }
+
         /// <summary>
         /// Check for duplicated version in migrations.
         /// </summary>

@@ -85,6 +85,17 @@ namespace Migrator
             MigrateTo(_migrationLoader.LastVersion);
         }
 
+       public void MigrateRedo()
+       {
+          if(null == _migrationLoader.MigrationsTypes || 0 == _migrationLoader.MigrationsTypes.Count)
+          {
+             return;
+          }
+
+          MigrateTo(_migrationLoader.SecondToLastVersion);
+          MigrateTo(_migrationLoader.LastVersion);
+       }
+
         /// <summary>
         /// Returns the current migrations applied to the database.
         /// </summary>
